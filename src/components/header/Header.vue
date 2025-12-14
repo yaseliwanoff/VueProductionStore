@@ -35,7 +35,7 @@ const toggleLogout = async () => {
             to="/course"
             active-class="menu__link--current"
             class="menu__link"
-            >Курс</router-link
+            >Курсы</router-link
           >
         </li>
         <li>
