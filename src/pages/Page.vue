@@ -1,3 +1,7 @@
+<script setup>
+import PageMain from "../components/sections/Page/PageMain.vue";
+</script>
+
 <template>
-  <h1>personal page</h1>
+  <PageMain />
 </template>
