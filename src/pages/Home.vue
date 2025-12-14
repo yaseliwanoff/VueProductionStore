@@ -1,10 +1,11 @@
 <script setup>
-import { useAuthUserState } from "../stores/auth";
-
-const user = useAuthUserState();
+import Hero from "../components/sections/Home/Hero.vue";
+import Texts from "../components/sections/Home/Texts.vue";
 </script>
 
 <template>
-  <h1>{{ user.fullName }}</h1>
-  <p>{{ user.email }}</p>
+  <div class="container">
+    <Hero />
+  </div>
+  <Texts />
 </template>
