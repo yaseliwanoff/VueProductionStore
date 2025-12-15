@@ -24,18 +24,18 @@ const router = createRouter({
     { path: "/", name: "Home", component: Home },
     { path: "/about", name: "About", component: About },
 
-    // Маршруты для не авторизированных пользователей
+    // Маршруты для НЕ авторизированных пользователей (ТОЛЬКО гости)
     {
       path: "/login",
       name: "Login",
       component: Login,
-      meta: { requiresAuth: false },
+      meta: { requiresGuest: true }, // Изменено с requiresAuth: false
     },
     {
       path: "/register",
       name: "Register",
       component: Register,
-      meta: { requiresAuth: false },
+      meta: { requiresGuest: true }, // Изменено с requiresAuth: false
     },
 
     // Маршруты для авторизированных пользователей
@@ -52,10 +52,12 @@ router.beforeEach((to, from, next) => {
   const authStore = useAuthUserState();
   const isAuthenticated = authStore.isAuthenticated;
 
+  // Для маршрутов требующих авторизации
   if (to.meta.requiresAuth && !isAuthenticated) {
     return next("/login");
   }
 
+  // Для маршрутов доступных ТОЛЬКО для неавторизованных (гостей)
   if (to.meta.requiresGuest && isAuthenticated) {
     return next("/");
   }
