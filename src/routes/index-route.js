@@ -29,13 +29,13 @@ const router = createRouter({
       path: "/login",
       name: "Login",
       component: Login,
-      meta: { requiresGuest: true }, // Изменено с requiresAuth: false
+      meta: { requiresGuest: true },
     },
     {
       path: "/register",
       name: "Register",
       component: Register,
-      meta: { requiresGuest: true }, // Изменено с requiresAuth: false
+      meta: { requiresGuest: true },
     },
 
     // Маршруты для авторизированных пользователей
